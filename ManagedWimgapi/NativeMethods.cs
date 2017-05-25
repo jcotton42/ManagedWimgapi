@@ -31,5 +31,14 @@ namespace ManagedWimgapi {
             SafeWimHandle handle
             );
 
+        [DllImport(Wimgapi, SetLastError = true)]
+        internal static extern SafeWimHandle WIMCreateFile(
+            string path,
+            WimAccess access,
+            WimMode mode,
+            WimCreationOptions options,
+            WimCompressionType compressionType,
+            out WimCreationResult creationResult
+            );
     }
 }
