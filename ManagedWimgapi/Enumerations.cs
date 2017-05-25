@@ -53,4 +53,23 @@ namespace ManagedWimgapi {
         /// </summary>
         OpenAlways = 4
     }
+
+    /// <summary>
+    /// Specifies the options used when creating a WIM file.
+    /// </summary>
+    [Flags]
+    public enum WimCreationOptions : uint {
+        /// <summary>
+        /// Do not use any special options.
+        /// </summary>
+        None = 0,
+        /// <summary>
+        /// Generates data integrity information for new files. Verifies and updates existing files.
+        /// </summary>
+        Verify = NativeMethods.WIM_FLAG_VERIFY,
+        /// <summary>
+        /// Opens the .wim file in a mode that enables simultaneous reading and writing.
+        /// </summary>
+        ShareWrite = NativeMethods.WIM_FLAG_SHARE_WRITE
+    }
 }
