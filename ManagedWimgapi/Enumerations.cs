@@ -72,4 +72,26 @@ namespace ManagedWimgapi {
         /// </summary>
         ShareWrite = NativeMethods.WIM_FLAG_SHARE_WRITE
     }
+
+    /// <summary>
+    /// Specifies the compression mode on a WIM.
+    /// </summary>
+    public enum WimCompressionType : uint {
+        /// <summary>
+        /// No compression.
+        /// </summary>
+        None = 0,
+        /// <summary>
+        /// Xpress compression.
+        /// </summary>
+        Xpress = 1,
+        /// <summary>
+        /// Lzx compression.
+        /// </summary>
+        Lzx = 2,
+        /// <summary>
+        /// Lzms compression.
+        /// </summary>
+        Lzms = 3
+    }
 }
