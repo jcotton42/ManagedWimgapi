@@ -94,4 +94,18 @@ namespace ManagedWimgapi {
         /// </summary>
         Lzms = 3
     }
+
+    /// <summary>
+    /// The result of creating a WIM file.
+    /// </summary>
+    public enum WimCreationResult : uint {
+        /// <summary>
+        /// The file did not exist and was created.
+        /// </summary>
+        CreatedNew = 0,
+        /// <summary>
+        /// The file existed and was opened for access.
+        /// </summary>
+        OpenedExisting = 1
+    }
 }
