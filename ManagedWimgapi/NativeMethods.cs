@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace ManagedWimgapi {
     internal class NativeMethods {
-        private const string Wimgapi = "wimgapi.dll";'
+        private const string Wimgapi = "wimgapi.dll";
 
         [DllImport(Wimgapi)]
         internal static extern bool WIMCloseHandle(SafeWimHandle handle);
