@@ -26,7 +26,7 @@ namespace ManagedWimgapi {
         internal const uint WIM_FLAG_SUPPORT_EA = 0x00008000;
         #endregion
 
-        [DllImport(Wimgapi)]
+        [DllImport(Wimgapi, SetLastError = true)]
         internal static extern bool WIMCloseHandle(
             SafeWimHandle handle
             );
