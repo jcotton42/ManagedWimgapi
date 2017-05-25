@@ -40,5 +40,11 @@ namespace ManagedWimgapi {
             WimCompressionType compressionType,
             out WimCreationResult creationResult
             );
+
+        [DllImport(Wimgapi, SetLastError = true)]
+        internal static extern SafeWimHandle WIMLoadImage(
+            SafeWimHandle wimHandle,
+            uint index
+            );
     }
 }
