@@ -46,5 +46,11 @@ namespace ManagedWimgapi {
             SafeWimHandle wimHandle,
             uint index
             );
+
+        [DllImport(Wimgapi, SetLastError = true)]
+        internal static extern bool WIMSetTemporaryPath(
+            SafeWimHandle wimHandle,
+            string path
+        );
     }
 }
