@@ -1,5 +1,5 @@
 ﻿namespace ManagedWimgapi {
-    public class WindowsImage {
+    public class WindowsImageFile {
         
     }
 }
