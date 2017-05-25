@@ -27,6 +27,9 @@ namespace ManagedWimgapi {
         #endregion
 
         [DllImport(Wimgapi)]
-        internal static extern bool WIMCloseHandle(SafeWimHandle handle);
+        internal static extern bool WIMCloseHandle(
+            SafeWimHandle handle
+            );
+
     }
 }
