@@ -5,6 +5,7 @@ namespace ManagedWimgapi {
     /// <summary>
     /// Represents a Windows Image file (.wim).
     /// </summary>
+    /// <remarks>This class is not thread-safe.</remarks>
     public sealed class WindowsImageFile : IDisposable {
         private readonly SafeWimHandle fileHandle;
         private bool disposed;
@@ -44,8 +45,11 @@ namespace ManagedWimgapi {
         }
 
         /// <summary>
-        /// Closes the Windows Image.
+        /// Closes the Windows Image file.
         /// </summary>
+        // TODO: check the docs on the dispose pattern to see if Dispose failing is ever ok
+        // if it isn't then we'll need to auto-dispose loaded images
+        // if it is then the docs need to note when it can fail
         public void Dispose() {
             fileHandle.Dispose();
             disposed = true;
