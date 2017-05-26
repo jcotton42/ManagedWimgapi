@@ -33,6 +33,45 @@ namespace ManagedWimgapi {
     }
 
     /// <summary>
+    /// Options for controlling how a windows image is applied to a directory.
+    /// </summary>
+    [Flags]
+    public enum WimApplyOptions : uint {
+        /// <summary>
+        /// Verifies that files match the original data.
+        /// </summary>
+        Verify = NativeMethods.WIM_FLAG_VERIFY,
+        /// <summary>
+        /// The image is to be sequentially read for caching or performance purposes.
+        /// </summary>
+        Index = NativeMethods.WIM_FLAG_INDEX,
+        /// <summary>
+        /// Performs application, but does not actually creating files or directories.
+        /// Messages are still raised, useful for getting a list of files and directories in the image.
+        /// </summary>
+        // TODO: investigate if messages are actually still raised
+        NoApply = NativeMethods.WIM_FLAG_NO_APPLY,
+        /// <summary>
+        /// Send a WIM_MSG_FILEINFO message during the apply operation.
+        /// </summary>
+        // TODO: replace WIM_MSG_FILEINFO w/ a <see> to the message type
+        SendFileInfoDuringApply = NativeMethods.WIM_FLAG_FILEINFO,
+        /// <summary>
+        /// Disable automatic fixups of reparse points (junctions and symlinks).
+        /// </summary>
+        DisableReparsePointFix = NativeMethods.WIM_FLAG_NO_RP_FIX,
+        /// <summary>
+        /// Do not restore ACLs for directories.
+        /// </summary>
+        DontRestoreDirectoryAcls = NativeMethods.WIM_FLAG_NO_DIRACL,
+        /// <summary>
+        /// Do not restore ACLs for files.
+        /// </summary>
+        DontRestoreFileAcls = NativeMethods.WIM_FLAG_NO_FILEACL
+    }
+
+
+    /// <summary>
     /// Specifies the compression mode on a WIM.
     /// </summary>
     public enum WimCompressionType : uint {
