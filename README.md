@@ -1,1 +1,1 @@
-# WIManager
+# ManagedWimgapi
