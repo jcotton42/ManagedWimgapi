@@ -38,6 +38,10 @@ namespace ManagedWimgapi {
     [Flags]
     public enum WimApplyOptions : uint {
         /// <summary>
+        /// Specifies no apply options.
+        /// </summary>
+        None = 0,
+        /// <summary>
         /// Verifies that files match the original data.
         /// </summary>
         Verify = NativeMethods.WIM_FLAG_VERIFY,
