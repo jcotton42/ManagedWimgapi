@@ -27,6 +27,13 @@ namespace ManagedWimgapi {
         #endregion
 
         [DllImport(Wimgapi, SetLastError = true)]
+        internal static extern bool WIMApplyImage(
+            SafeWimHandle imageHandle,
+            string applyPath, //TODO: per the header, this is optional, find out if it actually is
+            WimApplyOptions options
+        );
+
+        [DllImport(Wimgapi, SetLastError = true)]
         internal static extern bool WIMCloseHandle(
             SafeWimHandle handle
             );
