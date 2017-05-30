@@ -18,6 +18,7 @@ namespace ManagedWimgapi {
         /// <param name="mode">Specifies which action to take on files that exist, and which action to take when files do not exist.</param>
         /// <param name="options">Specifies special actions to be take for the specified file.</param>
         /// <param name="compressionType">Specifies the compression mode to be used for a newly created image file. If the file already exists, then this parameter is ignored.</param>
+        /// <param name="tempPath">Where temporary files are to be stored for operations on this file/</param>
         /// <exception cref="Exception">TODO</exception>
         public WindowsImageFile(string path, WimAccess access, WimMode mode, WimCreationOptions options,
             WimCompressionType compressionType, string tempPath) {
