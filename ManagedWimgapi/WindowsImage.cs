@@ -1,6 +1,9 @@
 using System;
 
 namespace ManagedWimgapi {
+    /// <summary>
+    /// Represents a Windows image.
+    /// </summary>
     public sealed class WindowsImage : IDisposable {
         private readonly SafeWIMHandle handle;
         private bool disposed;
