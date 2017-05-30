@@ -36,6 +36,13 @@ namespace ManagedWimgapi {
         );
 
         [DllImport(Wimgapi, SetLastError = true)]
+        internal static extern SafeWIMHandle WIMCaptureImage(
+            SafeWIMHandle wimHandle,
+            string capturePath,
+            CaptureOptions options
+        );
+
+        [DllImport(Wimgapi, SetLastError = true)]
         internal static extern bool WIMCloseHandle(
             SafeWIMHandle handle
         );

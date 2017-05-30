@@ -32,6 +32,11 @@ namespace ManagedWimgapi {
             }
         }
 
+
+        public WindowsImage Capture(string capturePath, CaptureOptions options) {
+            return new WindowsImage(NativeMethods.WIMCaptureImage(fileHandle, capturePath, options));
+        }
+
         /// <summary>
         /// Loads an image inside the WIM file.
         /// </summary>

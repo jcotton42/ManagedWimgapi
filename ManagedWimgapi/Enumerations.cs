@@ -85,6 +85,32 @@ namespace ManagedWimgapi {
         DontRestoreFileAcls = NativeMethods.WIM_FLAG_NO_FILEACL
     }
 
+    /// <summary>
+    /// Options to use when capturing an image.
+    /// </summary>
+    [Flags]
+    public enum CaptureOptions : uint {
+        /// <summary>
+        /// Perform a byte-by-byte comparison of files after capturing.
+        /// </summary>
+        Verify = NativeMethods.WIM_FLAG_VERIFY,
+
+        /// <summary>
+        /// Disable automatic fixups of reparse points (junctions and symlinks).
+        /// </summary>
+        DisableReparsePointFix = NativeMethods.WIM_FLAG_NO_RP_FIX,
+
+        /// <summary>
+        /// Don't capture ACLs for directories.
+        /// </summary>
+        DontCaptureDirectoryAcls = NativeMethods.WIM_FLAG_NO_DIRACL,
+
+        /// <summary>
+        /// Don't capture ACLs for files.
+        /// </summary>
+        DontCaptureFileAcls = NativeMethods.WIM_FLAG_NO_FILEACL
+    }
+
 
     /// <summary>
     /// Specifies the compression mode on a WIM.
