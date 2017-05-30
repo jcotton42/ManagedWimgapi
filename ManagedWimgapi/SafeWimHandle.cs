@@ -7,6 +7,7 @@ namespace ManagedWimgapi {
     /// </summary>
     public sealed class SafeWIMHandle : SafeHandle {
         public SafeWIMHandle(IntPtr invalidHandleValue, bool ownsHandle) : base(invalidHandleValue, ownsHandle) { }
+
         protected override bool ReleaseHandle() {
             return NativeMethods.WIMCloseHandle(this);
         }

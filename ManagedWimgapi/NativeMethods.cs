@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 namespace ManagedWimgapi {
     internal class NativeMethods {
         #region Constatns
+
         private const string Wimgapi = "wimgapi.dll";
 
         internal const uint WIM_FLAG_RESERVED = 0x00000001;
@@ -24,6 +25,7 @@ namespace ManagedWimgapi {
         internal const uint WIM_FLAG_WIM_BOOT = 0x00002000;
         internal const uint WIM_FLAG_APPLY_COMPACT = 0x00004000;
         internal const uint WIM_FLAG_SUPPORT_EA = 0x00008000;
+
         #endregion
 
         [DllImport(Wimgapi, SetLastError = true)]
@@ -36,7 +38,7 @@ namespace ManagedWimgapi {
         [DllImport(Wimgapi, SetLastError = true)]
         internal static extern bool WIMCloseHandle(
             SafeWIMHandle handle
-            );
+        );
 
         [DllImport(Wimgapi, SetLastError = true)]
         internal static extern SafeWIMHandle WIMCreateFile(
@@ -46,13 +48,13 @@ namespace ManagedWimgapi {
             WimCreationOptions options,
             WimCompressionType compressionType,
             out WimCreationResult creationResult
-            );
+        );
 
         [DllImport(Wimgapi, SetLastError = true)]
         internal static extern SafeWIMHandle WIMLoadImage(
             SafeWIMHandle wimHandle,
             uint index
-            );
+        );
 
         [DllImport(Wimgapi, SetLastError = true)]
         internal static extern bool WIMSetTemporaryPath(
