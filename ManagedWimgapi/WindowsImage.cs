@@ -3,10 +3,10 @@ using System.Runtime.InteropServices;
 
 namespace ManagedWimgapi {
     public sealed class WindowsImage : IDisposable {
-        private readonly SafeWimHandle handle;
+        private readonly SafeWIMHandle handle;
         private bool disposed;
 
-        internal WindowsImage(SafeWimHandle wimHandle) {
+        internal WindowsImage(SafeWIMHandle wimHandle) {
             if(handle.IsInvalid) {
                 throw Marshal.GetExceptionForHR(Marshal.GetHRForLastWin32Error());
             }

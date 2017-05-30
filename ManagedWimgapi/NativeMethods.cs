@@ -28,18 +28,18 @@ namespace ManagedWimgapi {
 
         [DllImport(Wimgapi, SetLastError = true)]
         internal static extern bool WIMApplyImage(
-            SafeWimHandle imageHandle,
+            SafeWIMHandle imageHandle,
             string applyPath, //TODO: per the header, this is optional, find out if it actually is
             WimApplyOptions options
         );
 
         [DllImport(Wimgapi, SetLastError = true)]
         internal static extern bool WIMCloseHandle(
-            SafeWimHandle handle
+            SafeWIMHandle handle
             );
 
         [DllImport(Wimgapi, SetLastError = true)]
-        internal static extern SafeWimHandle WIMCreateFile(
+        internal static extern SafeWIMHandle WIMCreateFile(
             string path,
             WimAccess access,
             WimMode mode,
@@ -49,14 +49,14 @@ namespace ManagedWimgapi {
             );
 
         [DllImport(Wimgapi, SetLastError = true)]
-        internal static extern SafeWimHandle WIMLoadImage(
-            SafeWimHandle wimHandle,
+        internal static extern SafeWIMHandle WIMLoadImage(
+            SafeWIMHandle wimHandle,
             uint index
             );
 
         [DllImport(Wimgapi, SetLastError = true)]
         internal static extern bool WIMSetTemporaryPath(
-            SafeWimHandle wimHandle,
+            SafeWIMHandle wimHandle,
             string path
         );
     }

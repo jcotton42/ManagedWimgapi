@@ -7,7 +7,7 @@ namespace ManagedWimgapi {
     /// </summary>
     /// <remarks>This class is not thread-safe.</remarks>
     public sealed class WindowsImageFile : IDisposable {
-        private readonly SafeWimHandle fileHandle;
+        private readonly SafeWIMHandle fileHandle;
         private bool disposed;
 
         /// <summary>
