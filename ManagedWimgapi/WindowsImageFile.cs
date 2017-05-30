@@ -25,13 +25,11 @@ namespace ManagedWimgapi {
             fileHandle = NativeMethods.WIMCreateFile(path, access, mode, options, compressionType, out _);
 
             if(fileHandle.IsInvalid) {
-                throw Marshal.GetExceptionForHR(Marshal.GetHRForLastWin32Error());
-                //TODO: find out what kind of exceptions can be thrown (bad path, no permission to open, invalid parameters)
+                Utils.HandleLastError();
             }
 
             if(!NativeMethods.WIMSetTemporaryPath(fileHandle, tempPath)) {
-                throw Marshal.GetExceptionForHR(Marshal.GetHRForLastWin32Error());
-                //TODO: same as last todo
+                Utils.HandleLastError();
             }
         }
 

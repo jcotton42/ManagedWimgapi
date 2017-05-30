@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.InteropServices;
 
 namespace ManagedWimgapi {
     public sealed class WindowsImage : IDisposable {
@@ -8,7 +7,7 @@ namespace ManagedWimgapi {
 
         internal WindowsImage(SafeWIMHandle wimHandle) {
             if(handle.IsInvalid) {
-                throw Marshal.GetExceptionForHR(Marshal.GetHRForLastWin32Error());
+                Utils.HandleLastError();
             }
 
             handle = wimHandle;
@@ -31,7 +30,7 @@ namespace ManagedWimgapi {
             EnsureNotDisposed();
 
             if(!NativeMethods.WIMApplyImage(handle, path, options)) {
-                throw Marshal.GetExceptionForHR(Marshal.GetHRForLastWin32Error());
+                Utils.HandleLastError();
             }
         }
 
