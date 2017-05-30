@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 
 namespace ManagedWimgapi {
     /// <summary>
@@ -40,7 +39,15 @@ namespace ManagedWimgapi {
         /// <returns>A new <see cref="WindowsImage"/> representing the image.</returns>
         /// <exception cref="Exception">TODO</exception>
         public WindowsImage LoadImage(uint index) {
+            EnsureNotDisposed();
+
             return new WindowsImage(NativeMethods.WIMLoadImage(fileHandle, index));
+        }
+
+        private void EnsureNotDisposed() {
+            if(disposed) {
+                throw new ObjectDisposedException(GetType().FullName, "The image has already been closed.");
+            }
         }
 
         /// <summary>
